@@ -1,0 +1,54 @@
+<odoo>
+  <data>
+ 
+    <record model="ir.ui.view" id="nahe_custom_sale_order_form_comments">
+      <field name="name">sale.oder.nahe.custom.form.comments</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="/form/sheet/notebook/page/field/tree/field[@name='name']" position= "after">
+          <field name="comments"/>
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field/tree/field[@name='name']" position= "replace">
+          <field name="name" widget="section_and_note_text" invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="nahe_custom_sale_order_form_preparando_listo">
+      <field name="name">nahe.custom.sale.order.form.preparando.listo</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="/form/sheet/group/group/field[@name='partner_shipping_id']" position= "after">
+          <field name="preparando" edit="1"/>
+          <field name="listo" edit="1"/>
+        </xpath>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="nahe_custom_sale_oder_list_preparando_listo">
+      <field name="name">preparado o listo</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="/tree/field[@name='amount_total']" position= "after">
+          <field name="preparando"/>
+          <field name="listo"/>
+        </xpath>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="nahe_custom_sale_oder_list_ocultar">
+      <field name="name">quitar fechas de entrega</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="/tree/field[@name='commitment_date']" position= "replace">
+          <field name="commitment_date" invisible="1"/>
+        </xpath>
+        <xpath expr="/tree/field[@name='expected_date']" position= "replace">
+          <field name="expected_date" invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
