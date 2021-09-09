@@ -1,0 +1,46 @@
+<odoo>
+      <template id="nahe_custom_report" inherit_id="sale.report_saleorder_document">
+        <span t-field="line.name"  position="replace">  
+          <span t-field="line.product_template_id"/>
+        </span>
+        <th name="th_description" position="after">
+          <th name="th_comment" class="text-left">Comentarios</th>
+        </th>
+        <td name="td_name" position="after">
+          <td name="td_comment"><span t-field="line.comments"/></td>
+        </td>
+        <p t-field="doc.note" position="after">
+          <p t-if="doc.carrier_id.name">
+            <span t-field="doc.carrier_id.name"/>
+          </p>
+          <p t-if="doc.pricelist_id">
+            <span>Lista de Precios: </span>
+            <span t-field="doc.pricelist_id"/>
+          </p>
+          <p t-if="doc.partner_id.mobile">
+            <span>Celular: </span>
+            <span t-field="doc.partner_id.mobile"/>
+          </p>
+          <p t-if="doc.partner_id.phone">
+            <span>Telefono: </span>
+            <span t-field="doc.partner_id.phone"/>
+          </p>
+        </p>
+        <!--xpath expr="t/t/div/table/tbody/t/tr/t/td[@name='td_name']" position="replace">
+            <td name="td_name"><span t-field="line.product_template_id"/></td>
+        </xpath>
+        <xpath expr="t/t/div/table/tbody/t/tr/t/td[@name='td_name']" position="after">
+            <td name="td_comment"><span t-field="line.comment"/></td>
+        </xpath>
+        <xpath expr="t/t/div/table/tbody/t/tr/t/td[@t-if='td_section_line']" position="replace">
+          <td name="td_section_line" colspan="99">
+            <span t-field="line.product_template_id"/>
+          </td>
+        </xpath>
+        <xpath expr="t/t/div/table/tbody/t/tr/t/td[@t-if='td_note_line']" position="replace">
+          <td name="td_note_line" colspan="99">
+            <span t-field="line.product_template_id"/>
+          </td>
+        </xpath-->
+      </template>
+</odoo>
