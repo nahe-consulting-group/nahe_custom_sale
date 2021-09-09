@@ -1,6 +1,6 @@
 <odoo>
     <template id="nahe_custom_my_sale_orders" inherit_id="sale.portal_my_orders">
-        <th class="text-right" position="after">
+        <th class="text-right">Total <position="after">
           <th class="text-right">Preparando el pedido</th>
           <th class="text-right">Listo Para Retirar></th>
         </th>
