@@ -13,5 +13,25 @@
                         <th class="text-right">Listo Para Retirar</th>
                     </tr>
           </tr>
+        <t t-foreach="orders" t-as="order" position="replace">
+            <t t-foreach="orders" t-as="order">
+                    <tr>
+                        <td><a t-att-href="order.get_portal_url()"><t t-esc="order.name"/></a></td>
+                        <td class="text-right">
+                            <span t-field="order.date_order" t-options="{'widget': 'date'}"/>&amp;nbsp;
+                            <span class="d-none d-md-inline" t-field="order.date_order" t-options="{'time_only': True}"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-if="order.state == 'done'" class="badge badge-pill badge-success">
+                                <i class="fa fa-fw fa-check" role="img" aria-label="Done" title="Done"/>Done
+                            </span>
+                        </td>
+                        <td class="text-right"><span t-field="order.amount_total"/></td>
+                        <td class="text-right"><span t-if="order.preparando == True and order.listo == False" > Preparando </span>
+                        <span t-if="order.preparando == True and order.listo == True and order.state != 'done'" > Ya fue preparado </span>
+                        <span t-if="order.preparando == True and order.listo == True and order.state == 'done'" > Ya fue preparado y entregado</span></td>
+                        <td class="text-right"><span t-if="order.listo == True and order.state != 'done'"> Listo para entregar </span><span t-if="order.listo == True and order.state == 'done'"> Ya fue entregado </span></td>
+                    </tr>
+                </t>
     </template>
 </odoo>
