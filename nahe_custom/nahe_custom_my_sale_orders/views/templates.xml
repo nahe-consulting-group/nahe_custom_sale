@@ -32,6 +32,7 @@
                         <span t-if="order.preparando == True and order.listo == True and order.state == 'done'" > Ya fue preparado y entregado</span></td>
                         <td class="text-right"><span t-if="order.listo == True and order.state != 'done'"> Listo para entregar </span><span t-if="order.listo == True and order.state == 'done'"> Ya fue entregado </span></td>
                     </tr>
-                </t>
+            </t>
+        </t>
     </template>
 </odoo>
