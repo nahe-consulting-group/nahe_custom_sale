@@ -12,6 +12,6 @@
                         <th class="text-right">Preparando el pedido</th>
                         <th class="text-right">Listo Para Retirar</th>
                     </tr>
-          
+          </tr>
     </template>
 </odoo>
