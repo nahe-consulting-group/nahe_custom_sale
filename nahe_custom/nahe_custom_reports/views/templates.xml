@@ -26,6 +26,14 @@
             <span t-field="doc.partner_id.phone"/>
           </p>
         </p>
+         <th name="th_taxes" position="replace">
+        </th>
+        <td name="td_taxes" position="replace">
+        </td>
+        <tr class="border-black o_subtotal" position="replace">
+        </tr>
+        <t t-foreach="doc.amount_by_group" t-as="amount_by_group" position="replace">
+        </t>
         <!--xpath expr="t/t/div/table/tbody/t/tr/t/td[@name='td_name']" position="replace">
             <td name="td_name"><span t-field="line.product_template_id"/></td>
         </xpath>
